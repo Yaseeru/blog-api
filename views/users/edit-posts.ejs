@@ -1,0 +1,28 @@
+<a href="/user-dashboard">&larr; Back</a>
+<div class="user-title">
+    <h2>View / Edit Post</h2>
+
+    <form action="/delete-posts/<%=data._id%>?_method=DELETE" method="post">
+        <input type="submit" value="Delete" class="btn-delete btn">
+    </form>
+</div>
+
+<form action="/edit-posts/<%= data._id%>?_method=PUT" method="POST" >
+    <label for="title"><b>Title</b></label>
+    <input type="text" name="title" value="<%= data.title %>">
+
+    <label for="description"><b>Description</b></label>
+    <textarea name="description" cols="50" rows="3">
+        <%= data.description %>
+    </textarea>
+    
+    <label for="tags"><b>Tags</b></label>
+    <input type="text" name="tags" value="<%=data.tags%>">
+
+    <label for="body"><b>Content</b></label>
+    <textarea name="body" cols="50" rows="10"> 
+        <%= data.body %>
+    </textarea>
+
+    <input type="submit" value="Update" class="btn">
+</form>

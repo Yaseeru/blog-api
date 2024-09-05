@@ -1,0 +1,12 @@
+<h1>
+    <%= data.title %>
+</h1>
+<h3>
+    Date Created: <%= data.timestamps.toDateString() %>
+</h3>
+<p>
+    Read Count: <%= data.read_count %>
+</p>
+<article class="article">
+<%= data.body %>
+</article>

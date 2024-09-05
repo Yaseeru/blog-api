@@ -1,0 +1,42 @@
+<div class="user-title">
+    <h2>Welcome <%= locals.firstname %>, Here's your Posts</h2>
+    <a href="/create-new-post" class="button">+ Add New Post</a>
+</div>
+
+<ul class="user-posts" >
+    <% if (posts.length > 0) { %>
+        <% posts.forEach(post => { %>
+            <li>
+                <a href="/posts/<%= post._id %>">
+                    <%= post.title.length > 30 ? post.title.substring(0, 30) + "..." : post.title %> &nearr;
+                </a>                
+                <p>
+                    State: <%= post.state %>
+                </p>
+                <p>
+                    Time Stamp: <%= post.timestamps.toDateString() %>
+                </p>
+                <div class="user-posts-controls">
+                    <a href="/edit-posts/<%= post._id %>" class="btn">Edit</a>
+    
+                    <form action="/delete-posts/<%= post._id %>?_method=DELETE" method="POST">
+                        <input type="submit" value="Delete" class="btn-delete">
+                    </form>
+                </div>
+            </li>
+        <% }); %>
+    <% } else { %>
+        <li>
+            <p>You haven't created any posts yet.</p>
+        </li>
+    <% } %>
+</ul>
+
+<br>
+<br>
+<br>
+<div class="user-title">
+    <a href="/logout">
+        Logout
+    </a>
+</div>

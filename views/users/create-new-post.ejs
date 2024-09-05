@@ -1,0 +1,26 @@
+<a href="/user-dashboard">&larr; Back</a>
+<div class="user-title">
+    <h2><%= locals.title %></h2>
+</div>
+
+<form action="/create-new-post" method="POST">
+    <label for="title"><b>Title</b></label>
+    <input type="text" placeholder="Post Title" name="title" required>
+
+    <label for="description"><b>Description</b></label>
+    <textarea name="description" placeholder="Brief description of the post" cols="50" rows="3"></textarea>
+
+    <!-- Hidden input field for author ID, populated by the server -->
+    <input type="hidden" name="author" value="<%= user._id %>">
+
+    <label for="tags"><b>Tags</b></label>
+    <input type="text" placeholder="Enter tags separated by commas" name="tags">
+
+    <label for="body"><b>Content</b></label>
+    <textarea name="body" cols="50" rows="10" required></textarea>
+
+    <!-- State field is hidden, set to "draft" by default -->
+    <input type="hidden" name="state" value="draft">
+
+    <input type="submit" value="Add" class="btn">
+</form>

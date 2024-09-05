@@ -1,0 +1,40 @@
+<div class="author">
+    <h1 class="author__heading">Hi, I am Abdulhamid</h1>
+    <p class="author__body">Web developer and Content Creator.</p>
+</div>
+
+<img src="/img/A determined individual.jpg" alt="" class="hero-image" width="981" height="528">
+
+<!-- Button Section -->
+<div class="button-container">
+    <a href="/User" class="signup-button">Start Writing 
+        <svg width="24" height="24" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <path d="M14.12 2.88l-9.4 9.4c-.31.31-.49.72-.49 1.16v4.5c0 .88.72 1.6 1.6 1.6h4.5c.44 0 .85-.18 1.16-.49l9.4-9.4c.5-.5.5-1.3 0-1.8l-1.1-1.1c-.5-.5-1.3-.5-1.8 0zM17.48 5.22l1.1 1.1-5.78 5.78-1.1-1.1 5.78-5.78zM6.71 17.48l-.9-2.7 2.7.9-1.8 1.8zm-1.62-1.62l2.71-.9 1.8 1.8-1.8 1.8-2.71-.9v-.01c-.26-.08-.52-.23-.73-.43s-.35-.47-.43-.73v-.01z" fill="#000"/>
+        </svg>
+         </a>
+</div>
+
+<section class="articles">
+    <h2 class="articles__heading">
+        Latest Posts
+    </h2>
+
+    <ul class="article-ul">
+        <% data.forEach(post=> { %>
+            <li>
+                <a href="/allPost/<%=post._id%>">
+                    <span>
+                        <%=post.title %>
+                    </span>
+                    <span class="article-list__date">
+                        <%= post.timestamps.toDateString() %>
+                    </span>
+                </a>
+            </li>
+        <% }) %>
+    </ul>
+
+    <% if (nextPage !== null) { %>
+        <a href="/?page=<%= nextPage %>" class="pagination">&lt; View Older Posts</a>
+    <% } %>
+</section>
