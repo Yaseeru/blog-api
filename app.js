@@ -10,7 +10,7 @@ const ejs = require("ejs");
 require("dotenv").config();
 
 const connectDB = require("./server/config/db");
-const isActiveRoute  = require('./server/helpers/routeHelpers')
+const isActiveRoute = require('./server/helpers/routeHelpers')
 const PORT = 3000 || process.env.PORT
 
 // Connect to the database
@@ -44,12 +44,10 @@ app.use("/", require("./server/routes/main"));
 app.use("/", require("./server/routes/admin"));
 app.use("/", require("./server/routes/users"));
 
-
-
 app.use((req, res, next) => {
     logger.info(`Incoming request: ${req.method} ${req.url}`);
     next();
-  });
+});
 
 
 app.listen(PORT, () => {

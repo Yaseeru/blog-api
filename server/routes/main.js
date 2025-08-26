@@ -41,13 +41,11 @@ router.get("", async (req, res) => {
   }
 });
 
-
-
 /**
  * GET
  * Post
  */
-router.get("/allPost/:id", async(req, res)=>{
+router.get("/allPost/:id", async (req, res) => {
   try {
     let slug = req.params.id;
 
@@ -55,8 +53,8 @@ router.get("/allPost/:id", async(req, res)=>{
       { _id: slug },
       { $inc: { read_count: 1 } },  // Increment the read_count by 1
       { new: true }  // Return the updated document
-    ); 
-    
+    );
+
     if (!data) {
       return res.status(404).send("This Post was not found, Try another Post!");
     }
@@ -65,7 +63,7 @@ router.get("/allPost/:id", async(req, res)=>{
     }
 
     res.render("post", { locals, data })
-  }catch(err){
+  } catch (err) {
     console.log(err);
   }
 })

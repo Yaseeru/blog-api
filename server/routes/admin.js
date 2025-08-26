@@ -5,7 +5,6 @@ const Blog = require("../models/Blog");
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const logger = require("../config/logger"); // Import the logger
-
 const adminLayout = "../views/layouts/admin";
 const jwtSecret = process.env.JWT_SECRET;
 

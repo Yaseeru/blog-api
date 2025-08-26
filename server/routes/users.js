@@ -208,7 +208,7 @@ router.post('/create-new-post', authMiddleware, (req, res) => {
     const newPost = new Blog({
         title,
         description,
-        author,  // Automatically set the author field
+        author,
         state,
         tags: tags ? tags.split(',').map(tag => tag.trim()) : [],
         body,
